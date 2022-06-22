@@ -95,7 +95,7 @@ var numFilesCache sync.Map // map[protoreflect.FullName]int
 // Deprecated: Use protoregistry.GlobalTypes.RegisterEnum instead.
 func RegisterEnum(s enumName, _ enumsByNumber, m enumsByName) {
 	if _, ok := enumCache.Load(s); ok {
-		panic("proto: duplicate enum registered: " + s)
+		fmt.Println("proto: duplicate enum registered: " + s)
 	}
 	enumCache.Store(s, m)
 
